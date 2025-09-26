@@ -1,5 +1,5 @@
 // Ejercicio 2
-// Crear una función que reciba dos cads de texto y compruebe si una es la inversa de la otra.
+// Crear una función que reciba dos cadenas de texto y compruebe si una es la inversa de la otra.
 
 function esInversa(cad1, cad2) {
     if (typeof cad1 !== 'string' || typeof cad2 !== 'string') {
