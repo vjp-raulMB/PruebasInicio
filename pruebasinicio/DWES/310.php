@@ -110,7 +110,7 @@ class Empleado extends Persona
     {
         $str = parent::__toString() . "<br>";
         $str .= " | Sueldo: " . $this->getSueldo() . "<br>";
-        $str .= " | Debe pagar impuestos: " . ($this->debePagarImpuestos() ? 'Sí' : 'No' . "<br>" );
+        $str .= " | Debe pagar impuestos: " . ($this->debePagarImpuestos() ? 'Sí' : 'No') . "<br>";
         $str .= "<br> | Teléfonos: [" . implode(", ", $this->getTelefonos()) . "]";
         return $str;
     }
