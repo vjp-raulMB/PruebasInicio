@@ -1,0 +1,16 @@
+// console.log(document.documentElement)
+// console.log(document.head)
+// console.log(document.body)
+// document.getElementById("titulo1")
+// document.getElementsByClassName("parrafos")
+// document.getElementsByClassName("negrita")
+// document.getElementsByTagName("p")
+
+let head =document.head
+console.log(head.childNodes)
+console.log(head.children)
+console.log(head.parentNode)
+console.log(head.nextSibling)
+console.log(head.previousSibling)
+console.log(head.nextElementSibling)
+console.log(head.previousElementSibling)
