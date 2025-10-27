@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Html 5 y Css 3</title>
+  <style>
+     *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{
+    background:#dcdcdc;
+    font-family:"Open Sans", sans-serif;
+    color:#111;
+  }
+
+  .wrap{
+    width:auto;                      
+    max-width:95%;
+    margin:20px auto 20px;
+  }
+
+  header.page-title{
+    text-align:center;
+    margin-bottom:20px;
+  }
+  header.page-title h1{
+    font-family: "Oswald", sans-serif;
+    font-weight:700;
+    letter-spacing:18px;               
+    font-size:56px;                     
+    color:#000;
+    padding:30px 0 10px;
+    text-transform:uppercase;
+  }
+
+  .section{
+    margin:18px 0 36px;
+    padding:18px 22px;
+  }
+
+  .section .bar{
+    background:#777777;
+    padding:3px;
+    margin-bottom:18px;
+    position:relative;
+  }
+  .section .bar .tag{
+    display:inline-block;
+    color:white;
+    font-weight:700;
+    padding:8px 14px;
+    font-size:30px;
+    text-transform:uppercase;
+    box-shadow:none;
+    line-height:1;
+  }
+
+  .content{
+    display:flex;
+    gap:26px;
+    margin: 0 150px;
+  }
+
+  .content .logo{
+    flex:0 0 140px;                     
+    max-width:140px;
+  }
+  .content .logo img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  .content .text{
+    flex:1 1 auto;
+    text-align:justify;
+    font-size:15px;
+    line-height:1.5;
+    color:#222;
+  }
+
+  .highlight-red{
+    color:#d93b3b;
+    font-weight:600;
+    font-style: oblique;
+  }
+
+  .text strong{
+    background-color: white;
+    font-weight:700;
+  }
+
+  .text p{
+    margin-bottom: 14px;
+    text-indent: 40px;
+  }
+
+  @media (max-width:720px){
+    header.page-title h1{font-size:34px; letter-spacing:8px;}
+    .content{flex-direction:column;align-items:center}
+    .content .logo{flex:auto;max-width:180px;margin-bottom:8px}
+    .content .text{text-align:left}
+  }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header class="page-title">
+      <h1>HTML 5 y CSS 3</h1>
+    </header>
+
+    <section class="section html5">
+      <div class="bar"><span class="tag">HTML 5</span></div>
+
+      <div class="content">
+        <div class="logo">
+          <img src="html5-logo.svg" alt="HTML5 logo" />
+        </div>
+
+        <div class="text">
+          <p>
+            El <span class="highlight-red">28 de octubre de 2014</span> se aprobó la <strong>Recomendación HTML 5</strong>, culminando así diez años de trabajo. En 2004 se formó el WHATWG, un grupo informal de individuos y empresas decididos a impulsar el desarrollo del HTML, que se encontraba bloqueado en el W3C desde el año 2000. En 2007 el W3C retomó el trabajo sobre el HTML y siete años después se alcanzó el objetivo.
+          </p>
+          <p>
+            Pero el HTML 5 no era más que el primer paso. El 1 de noviembre de 2016 se aprobó la recomendación HTML 5.1, ampliando y clarificando el HTML 5, y el W3C ya está trabajando en el HTML 5.2, previsto para finales de 2017.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section css3">
+      <div class="bar"><span class="tag">CSS 3</span></div>
+
+      <div class="content">
+        <div class="logo">
+          <img src="css3-logo.svg" alt="CSS3 logo" />
+        </div>
+
+        <div class="text">
+          <p>
+            Desde la aprobación de CCS 2 en 1998, el W3C ha estado trabajando en la siguiente generación de las hojas de estilo, las CSS 3. Las <strong>Recomendaciones CSS 3</strong> se planificaron como un conjunto de recomendaciones en vez de como un documento único. El proceso ha resultado largo y poco productivo: las primeras recomendaciones CSS 3 no se aprobaron hasta <span class="highlight-red">2011</span>.
+          </p>
+          <p>
+            Aunque los navegadores admiten muchas características de CSS 3, la publicación de HTML 5 no ha acelerado el desarrollo de CSS 3.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
