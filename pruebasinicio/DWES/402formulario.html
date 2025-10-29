@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario 402</title>
+</head>
+<body>
+    <h2>Formulario de datos personales</h2>
+    <form action="402formulario.php" method="post">
+        <label>Nombre y apellidos:</label><br>
+        <input type="text" name="nombre" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>URL de tu página personal:</label><br>
+        <input type="url" name="url"><br><br>
+
+        <label>Sexo:</label><br>
+        <input type="radio" name="sexo" value="Hombre" required> Hombre
+        <input type="radio" name="sexo" value="Mujer"> Mujer
+        <input type="radio" name="sexo" value="Otro"> Otro<br><br>
+
+        <label>Número de convivientes en el domicilio:</label><br>
+        <input type="number" name="convivientes" min="0" required><br><br>
+
+        <label>Aficiones:</label><br>
+        <input type="checkbox" name="aficiones[]" value="Leer"> Leer<br>
+        <input type="checkbox" name="aficiones[]" value="Deporte"> Deporte<br>
+        <input type="checkbox" name="aficiones[]" value="Viajar"> Viajar<br>
+        <input type="checkbox" name="aficiones[]" value="Cine"> Cine<br><br>
+
+        <label>Menú favorito (selección múltiple con Ctrl/Cmd):</label><br>
+        <select name="menu[]" multiple size="4">
+            <option value="Pizza">Pizza</option>
+            <option value="Pasta">Pasta</option>
+            <option value="Sushi">Sushi</option>
+            <option value="Hamburguesa">Hamburguesa</option>
+        </select><br><br>
+
+        <input type="submit" value="Enviar">
+        <input type="reset" value="Borrar">
+    </form>
+</body>
+</html>
