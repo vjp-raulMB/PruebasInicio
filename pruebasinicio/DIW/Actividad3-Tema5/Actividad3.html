@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño Adaptativo 3 Breakpoints</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background: #fffbe6;
+            border-radius: 8px;
+            padding: 10px;
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .block {
+            border-radius: 6px;
+            min-height: 80px;
+        }
+
+        .yellow {
+            background-color: #ffd700;
+        }
+
+        .green {
+            background-color: #32cd32;
+        }
+
+        .blue {
+            background-color: #4169e1;
+        }
+
+        .red {
+            background-color: #ff0000;
+        }
+
+        .orange {
+            background-color: #ff8c00;
+        }
+
+        /* --- Fila intermedia (verde, azul, rojo) --- */
+        .middle {
+            display: flex;
+            gap: 10px;
+        }
+
+        .middle .green,
+        .middle .blue,
+        .middle .red {
+            flex: 1;
+        }
+
+
+        @media (min-width: 901px) {
+            .middle {
+                flex-direction: row;
+                /* Verde, Azul, Rojo en fila */
+            }
+        }
+
+
+        @media (min-width: 601px) and (max-width: 900px) {
+            .middle {
+                flex-wrap: wrap;
+            }
+
+            .middle .green,
+            .middle .blue {
+                flex: 1 1 48%;
+            }
+
+            .middle .red {
+                flex: 1 1 100%;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+            .middle {
+                flex-direction: column;
+                flex-wrap: nowrap;
+            }
+
+            .middle .green,
+            .middle .blue {
+                flex: none;
+                width: 100%;
+                min-height: 80px;
+            }
+
+            /*Ocultar el bloque rojo en móviles */
+            .middle .red {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Fila 1: Amarillo -->
+        <div class="block yellow"></div>
+
+        <!-- Fila 2: Verde, Azul, Rojo -->
+        <div class="middle">
+            <div class="block green"></div>
+            <div class="block blue"></div>
+            <div class="block red"></div>
+        </div>
+
+        <!-- Fila 3: Naranja -->
+        <div class="block orange"></div>
+    </div>
+</body>
+
+</html>

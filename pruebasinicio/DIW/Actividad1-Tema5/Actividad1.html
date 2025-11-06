@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseño Adaptativo Corregido</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 600px;
+      background-color: #fffbe6;
+      border-radius: 8px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .block {
+      border-radius: 6px;
+      min-height: 100px;
+      transition: all 0.3s ease;
+    }
+
+    .yellow { background-color: #ffd700; }
+    .blue { background-color: #4169e1; }
+    .orange { background-color: #ff8c00; }
+    .green { background-color: #32cd32; }
+
+    /* --- Fila inferior (naranja y verde) --- */
+    .row-bottom {
+      display: flex;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+
+    .row-bottom .block {
+      flex: 1;
+      min-height: 100px;
+    }
+    @media (max-width: 600px) {
+      .row-bottom {
+        flex-direction: column; /* Verde pasa debajo del naranja */
+      }
+
+      .block {
+        min-height: 80px; /* Se adaptan a pantallas pequeñas */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Fila 1: Amarillo -->
+    <div class="block yellow"></div>
+
+    <!-- Fila 2: Azul -->
+    <div class="block blue"></div>
+
+    <!-- Fila 3: Naranja y Verde -->
+    <div class="row-bottom">
+      <div class="block orange"></div>
+      <div class="block green"></div>
+    </div>
+  </div>
+</body>
+</html>
