@@ -4,6 +4,7 @@ let path = require('path');
 let HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    mode: 'development',
     entry: {
         index: './src/index.ts'
     },
