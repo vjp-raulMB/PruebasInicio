@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dados Rojos Simples</title>
+  <style>
+    body {
+      margin: 0;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      height: 100vh;
+    }
+
+    .container {
+      display: flex;
+      gap: 12px;
+      padding: 20px;
+    }
+
+    .die {
+      width: 100px;
+      height: 100px;
+      background: rgb(235, 52, 68);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      box-sizing: border-box;
+    }
+
+    .pip {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: white;
+      justify-self: center;
+      align-self: center;
+    }
+
+    .tl{grid-column:1; grid-row:1}
+    .tc{grid-column:2; grid-row:1}
+    .tr{grid-column:3; grid-row:1}
+    .ml{grid-column:1; grid-row:2}
+    .c {grid-column:2; grid-row:2}
+    .mr{grid-column:3; grid-row:2}
+    .bl{grid-column:1; grid-row:3}
+    .bc{grid-column:2; grid-row:3}
+    .br{grid-column:3; grid-row:3}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="die">
+      <span class="pip c"></span>
+    </div>
+
+    <div class="die">
+      <span class="pip tl"></span>
+      <span class="pip br"></span>
+    </div>
+
+    <div class="die">
+      <span class="pip tl"></span>
+      <span class="pip c"></span>
+      <span class="pip br"></span>
+    </div>
+
+    <div class="die">
+      <span class="pip tl"></span>
+      <span class="pip tr"></span>
+      <span class="pip bl"></span>
+      <span class="pip br"></span>
+    </div>
+
+    <div class="die">
+      <span class="pip tl"></span>
+      <span class="pip tr"></span>
+      <span class="pip c"></span>
+      <span class="pip bl"></span>
+      <span class="pip br"></span>
+    </div>
+
+    <div class="die">
+      <span class="pip tl"></span>
+      <span class="pip ml"></span>
+      <span class="pip bl"></span>
+      <span class="pip tr"></span>
+      <span class="pip mr"></span>
+      <span class="pip br"></span>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diseño C - Flexbox</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #d60a36;
+            color: white;
+            padding: 20px;
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: row;
+            background-color: #28d33d;
+            flex: 1;
+        }
+
+        nav {
+            background-color: #ccc;
+            display: flex;
+            flex-direction: column;
+            width: 180px;
+            margin-right: 20px;
+            align-self: flex-start;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav a {
+            padding: 12px 15px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+        }
+
+        nav a:hover {
+            background-color: #555;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            Diseño C - Flexbox
+        </header>
+        <div class="content">
+            <nav>
+                <a href="#">Enlace 1</a>
+                <a href="#">Enlace 2</a>
+                <a href="#">Enlace 3</a>
+                <a href="#">Enlace 4</a>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>
