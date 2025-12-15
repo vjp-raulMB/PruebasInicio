@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Acceso / Registro - Aroma Selecto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo" />
+      <div class="site-title">Aroma Selecto</div>
+    </div>
+    <nav class="nav">
+      <a class="link-ghost" href="index.html">Inicio</a>
+      <a class="link-ghost" href="departments.html">Departamentos</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card" style="max-width:720px;margin:20px auto;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <section>
+        <h2>Iniciar sesión</h2>
+        <form action="#" method="post" novalidate>
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input id="email" class="input" type="email" name="email" required placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="form-row">
+            <label for="pwd">Contraseña</label>
+            <input id="pwd" class="input" type="password" name="password" required>
+          </div>
+          <div class="form-actions">
+            <button class="btn">Entrar</button>
+            <a class="link-ghost" href="#">¿Olvidaste la contraseña?</a>
+          </div>
+          <hr style="margin:18px 0">
+          <p style="color:var(--muted);font-size:0.95rem">O inicia sesión con</p>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="link-ghost" aria-label="Continuar con Google">Google</button>
+            <button class="link-ghost" aria-label="Continuar con Facebook">Facebook</button>
+            <button class="link-ghost" aria-label="Continuar con GitHub">GitHub</button>
+          </div>
+        </form>
+      </section>
+      <aside>
+        <h3>Registro</h3>
+        <p style="color:var(--muted)">Crea una cuenta para acceder a contenidos exclusivos y gestionar pedidos.</p>
+        <form action="#" novalidate>
+          <div class="form-row">
+            <label>Nombre</label>
+            <input class="input" type="text" name="name" required>
+          </div>
+          <div class="form-row">
+            <label>DNI (opcional)</label>
+            <!-- Patrón ejemplo para DNI: 8 dígitos y una letra -->
+            <input class="input" type="text" name="dni" pattern="\d{8}[A-Za-z]" placeholder="12345678A">
+          </div>
+          <div class="form-row">
+            <label>Teléfono</label>
+            <input class="input" type="tel" name="phone" pattern="[0-9+\-() ]{6,}" placeholder="600000000">
+          </div>
+          <div class="form-actions">
+            <button class="btn">Registrar</button>
+            <a class="link-ghost" href="index.html">Volver</a>
+          </div>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>

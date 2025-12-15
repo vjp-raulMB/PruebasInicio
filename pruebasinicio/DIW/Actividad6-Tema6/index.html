@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <!-- CABECERA -->
+  <header>
+    <div class="logo">
+      <img src="img/logo_IES.jpg" alt="Logo IES Valle del Jerte">
+      <h1>IES VALLE DEL JERTE</h1>
+    </div>
+    <img src="img/logo_IyC.png" alt="Informática y Comunicaciones" class="dept-logo">
+  </header>
+
+  <!-- CONTENEDOR -->
+  <div class="container">
+
+    <!-- TABS -->
+    <div class="tabs-container">
+
+      <!-- PESTAÑAS -->
+      <div class="tabs">
+
+        <!-- INICIO -->
+        <input type="radio" name="tabs" id="tab-inicio" checked>
+        <label class="tab-label" for="tab-inicio">Inicio</label>
+
+        <!-- CICLOS -->
+        <input type="radio" name="tabs" id="tab-ciclos">
+        <label class="tab-label" for="tab-ciclos">Ciclos Formativos</label>
+
+        <!-- FCT -->
+        <input type="radio" name="tabs" id="tab-fct">
+        <label class="tab-label" for="tab-fct">FCT</label>
+
+        <!-- CONTACTO -->
+        <input type="radio" name="tabs" id="tab-contacto">
+        <label class="tab-label" for="tab-contacto">Contacto</label>
+
+        <!-- CAMPUS -->
+        <input type="radio" name="tabs" id="tab-campus">
+        <label class="tab-label" for="tab-campus">Campus Virtual</label>
+
+      </div>
+
+      <!-- CONTENIDO -->
+      <!-- INICIO -->
+          <div id="inicio" class="tab-content">
+            <h2>Inicio</h2>
+            <p>El IES Valle del Jerte es uno de los centros de referencia en la ciudad de Plasencia.</p>
+            <p><strong>Cuentas con 765 alumnos</strong> pertenecientes a:</p>
+            <ul>
+              <li>Educación Secundaria Obligatoria</li>
+              <li>Formación Profesional Básica</li>
+              <li>Ciclo Formativo de Grado Medio</li>
+              <li>Ciclos Formativos de Grado Superior</li>
+            </ul>
+            <img src="img/fotoIES.jpg" alt="Edificio IES Valle del Jerte">
+          </div>
+
+      <!-- CICLOS FORMATIVOS -->
+          <div id="ciclos" class="tab-content">
+            <h2>Ciclos Formativos</h2>
+            <img src="img/Ciclos.jpg" alt="Iconos de ciclos">
+            <p>Ofrecemos una amplia oferta de Formación Profesional reglada de la familia de Informática y Comunicaciones:</p>
+            <ul>
+              <li>Formación Profesional Básica de Informática de Oficina</li>
+              <li>Ciclo Formativo de Grado Medio de Sistemas Microinformáticos y Redes</li>
+              <li>Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Multiplataforma</li>
+              <li>Ciclo Formativo de Grado Superior de Desarrollo de Aplicaciones Web</li>
+              <li>Ciclo Formativo de Grado Superior de Administración de Sistemas Informáticos en Red</li>
+            </ul>
+            <img src="img/alumnos.jpg" alt="Alumnos en laboratorio">
+          </div>
+
+      <!-- FCT -->
+
+          <div id="fct" class="tab-content">
+            <h2>FCT</h2>
+            <p>Colaboramos con decenas de empresas del sector para ofrecer oportunidades de empleo para nuestros alumnos egresados:</p>
+            <div class="fct-logos">
+              <img src="img/FCT.jpg" alt="Acenor">
+            </div>
+            <div class="erasmus">
+              <img src="img/ErasmusPlus.jpg" alt="Erasmus+">
+              <h3>Erasmus+</h3>
+            </div>
+          </div>
+
+      <!-- CONTACTO -->
+          <div id="contacto" class="tab-content">
+            <h2>Contacto</h2>
+            <p><strong>Dirección:</strong> Calle Pedro y Francisco González, s/n, 10600 Plasencia, Cáceres</p>
+            <p><strong>Teléfono:</strong> 927 01 77 74</p>
+            <p><strong>Email:</strong> ies.valledeljerte@edu.juntaex.es</p>
+            <div class="map-container">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053.361411983837!2d-6.094367!3d40.032358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd15b1a1b1b1b1b1%3A0x1b1b1b1b1b1b1b1!2sIES%20Valle%20del%20Jerte!5e0!3m2!1ses!2ses!4v1234567890" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+          </div>
+
+      <!-- CAMPUS VIRTUAL -->
+          <div id="campus" class="tab-content">
+            <h2>Campus Virtual</h2>
+            <p>Disponemos de un Campus Virtual bajo la tecnología de Moodle para dar soporte a toda la docencia presencial de nuestros Ciclos Formativos:</p>
+            <div class="moodle-box">
+              <h3>Diseño de Interfaces Web – Álvaro Pablos</h3>
+              <img src="img/Moodle.jpg" alt="Moodle DIW">
+              <p>Puedes acceder a él a través de <a href="#" style="color:#0055a5; font-weight:bold;">este enlace</a>.</p>
+            </div>
+          </div>
+
+    </div>
+
+    <!-- BARRA LATERAL -->
+    <aside>
+      <div class="ciclo-card">
+        <img src="img/aside_FPB.png" alt="Ofimática">
+        <h3>Formación Profesional Básica Informática de Oficina</h3>
+        <a href="#">IES Valle del Jerte</a>
+      </div>
+      <div class="ciclo-card">
+        <img src="img/aside_SMR.png" alt="SMIR">
+        <h3>Sistemas Microinformáticos y Redes</h3>
+        <a href="#">Plasencia</a>
+      </div>
+      <div class="ciclo-card">
+        <img src="img/aside_DAM.png" alt="DAM">
+        <h3>Desarrollo de Aplicaciones Multiplataforma</h3>
+        <a href="#">informatica.iesvalledeljerteplasencia.es</a>
+      </div>
+      <div class="ciclo-card">
+        <img src="img/aside_DAW.png" alt="DAW">
+        <h3>Desarrollo de Aplicaciones Web</h3>
+        <a href="#">Plasencia</a>
+      </div>
+      <div class="ciclo-card">
+        <img src="img/aside_ASIR.png" alt="ASIR">
+        <h3>Administración de Sistemas Informáticos en Red</h3>
+        <a href="#">IES Valle del Jerte</a>
+      </div>
+    </aside>
+  </div>
+
+  <!-- PIE -->
+  <footer>
+    <p>Curso 2018/19 Diseño de Interfaces Web</p>
+    <div class="social-icons">
+      <a href="#" aria-label="Facebook">Facebook</a>
+      <a href="#" aria-label="Twitter">Twitter</a>
+      <a href="#" aria-label="Instagram">Instagram</a>
+    </div>
+  </footer>
+</body>
+
+</html>

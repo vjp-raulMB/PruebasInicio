@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Resumen de pedido - Aroma Selecto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo"><img src="images/logo.png" alt="Logo"><div class="site-title">Aroma Selecto</div></div>
+    <nav class="nav"><a class="link-ghost" href="index.html">Inicio</a><a class="btn" href="login.html">Acceder</a></nav>
+  </header>
+
+  <main class="container">
+    <h1>Resumen de pedido</h1>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:18px">
+      <section>
+        <div class="card cart-list">
+          <div class="cart-item">
+            <img src="images/thumb1.jpg" alt="" style="width:72px;height:72px;object-fit:cover;border-radius:8px">
+            <div>
+              <strong>Cappuccino Clásico</strong>
+              <div style="color:var(--muted)">1 x 3,50 €</div>
+            </div>
+            <div style="margin-left:auto" class="qty">Cant: 1</div>
+          </div>
+
+          <div class="cart-item">
+            <img src="images/thumb2.jpg" alt="" style="width:72px;height:72px;object-fit:cover;border-radius:8px">
+            <div>
+              <strong>Guía de estilo</strong>
+              <div style="color:var(--muted)">1 x 2,80 €</div>
+            </div>
+            <div style="margin-left:auto" class="qty">Cant: 2</div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="order-summary card">
+          <h3 style="margin-top:0">Total</h3>
+          <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>9,10 €</span></div>
+          <div style="display:flex;justify-content:space-between"><span>IVA</span><span>0,91 €</span></div>
+          <hr style="margin:12px 0">
+          <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total</span><span>10,01 €</span></div>
+
+          <h4 style="margin-top:12px">Formas de pago</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <!-- Sólo enlaces: no funcionales -->
+            <a class="link-ghost" href="#">PayPal</a>
+            <a class="link-ghost" href="#">Redsys</a>
+            <a class="link-ghost" href="#">Google Pay</a>
+          </div>
+
+          <div style="margin-top:12px" class="form-actions">
+            <button class="btn">Finalizar pedido</button>
+            <a class="link-ghost" href="search.html">Seguir comprando</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>

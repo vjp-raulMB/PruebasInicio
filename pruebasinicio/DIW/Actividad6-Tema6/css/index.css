@@ -1,0 +1,281 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* CABECERA */
+header {
+    background: linear-gradient(#0055a5, #003b7a);
+    color: white;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.logo img {
+    width: 60px;
+    height: 60px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.dept-logo {
+    width: 140px;
+}
+
+/* CONTENEDOR */
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+/* TABS CONTAINER */
+.tabs-container {
+    flex: 3;
+    min-width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+/* PESTAÑAS */
+.tabs {
+    display: flex;
+    background: #e9ecef;
+    border-bottom: 3px solid #0055a5;
+    flex-wrap: wrap;
+}
+
+/* Ocultamos los inputs */
+input[type="radio"] {
+  display: none;
+}
+
+/* Pestañas */
+.tab-label {
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+  font-weight: 600;
+  cursor: pointer;
+  background: #e9ecef;
+  border-bottom: 3px solid #0055a5;
+  transition: all 0.3s;
+}
+.tab-label:hover {
+  background: #d0e4f7;
+}
+
+/* Contenido oculto */
+.tab-content {
+  display: none;
+  padding: 1.5rem;
+  background: white;
+}
+
+/* Mostrar solo el contenido del tab activo */
+#tab-inicio:checked ~ #inicio,
+#tab-ciclos:checked ~ #ciclos,
+#tab-fct:checked ~ #fct,
+#tab-contacto:checked ~ #contacto,
+#tab-campus:checked ~ #campus {
+  display: block;
+}
+
+/* MOSTRAR CONTENIDO CUANDO ESTÁ ACTIVO */
+
+.tab-content h2 {
+    color: #0055a5;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-bottom: 2px solid #0055a5;
+    padding-bottom: 0.3rem;
+}
+
+.tab-content ul {
+    margin-left: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* FCT LOGOS */
+.fct-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 1.5rem 0;
+}
+
+.fct-logos img {
+    height: 50px;
+    filter: grayscale(30%);
+    transition: filter 0.3s;
+}
+
+.fct-logos img:hover {
+    filter: grayscale(0);
+}
+
+.erasmus {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.erasmus img {
+    width: 200px;
+    margin: 0 auto 1rem;
+}
+
+.map-container {
+    height: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.moodle-box {
+    background: #e6f3e6;
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+}
+
+.moodle-box h3 {
+    color: #006400;
+    margin-bottom: 0.8rem;
+}
+
+/* BARRA LATERAL */
+aside {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.ciclo-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.ciclo-card:hover {
+    transform: translateY(-5px);
+}
+
+.ciclo-card img {
+    height: 60px;
+    object-fit: contain;
+    padding: 0.8rem;
+}
+
+.ciclo-card h3 {
+    background: linear-gradient(to right, #a01c4a, #6a0dad);
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.85rem;
+    margin: 0;
+}
+
+.ciclo-card a {
+    display: block;
+    background: #0055a5;
+    color: white;
+    padding: 0.5rem;
+    font-size: 0.8rem;
+}
+
+/* PIE */
+footer {
+    background: #0055a5;
+    color: white;
+    text-align: center;
+    padding: 1.2rem;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+.social-icons a {
+    color: white;
+    margin: 0 0.8rem;
+    font-size: 1.4rem;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .tabs {
+        flex-direction: column;
+    }
+
+    .tab-label {
+        text-align: left;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 1rem;
+    }
+
+    .ciclo-card {
+        min-width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logo h1 {
+        font-size: 1.5rem;
+    }
+}

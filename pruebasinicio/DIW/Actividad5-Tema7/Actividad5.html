@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablero de Ajedrez</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+
+        .letras {
+            display: grid;
+            grid-template-columns: 30px repeat(8, 50px);
+            width: 430px;
+            margin-bottom: 2px;
+        }
+
+        .letra {
+            text-align: center;
+            font-weight: bold;
+            line-height: 50px;
+        }
+
+        .numeros-tablero {
+            display: flex;
+            flex-direction: row;         
+        }
+
+        .numeros {
+            display: grid;
+            grid-template-rows: repeat(8, 50px);
+            margin-right: 2px;
+        }
+
+        .numero {
+            text-align: center;
+            font-weight: bold;
+            line-height: 50px;
+            width: 30px;
+        }
+
+        .tablero {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            gap: 0;
+            width: 400px;
+            height: 400px;
+        }
+
+        .casilla {
+            width: 50px;
+            height: 50px;
+        }
+
+        .blanca {
+            background: #ffffff;
+        }
+
+        .negra {
+            background: #000000;
+        }
+        .color_fondo {
+            background-color: #d8b17f;
+        }
+        #volteo {
+            transform: scaleY(-1);
+        }
+        #volteo2 {
+            transform: scaleY(-1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="color_fondo">
+            <div class="letras" id="volteo">
+                <div></div>
+                <div class="letra">h</div>
+                <div class="letra">g</div>
+                <div class="letra">f</div>
+                <div class="letra">e</div>
+                <div class="letra">d</div>
+                <div class="letra">c</div>
+                <div class="letra">b</div>
+                <div class="letra">a</div>
+            </div>
+            <div class="numeros-tablero">
+                <div class="numeros">
+                    <div class="numero">8</div>
+                    <div class="numero">7</div>
+                    <div class="numero">6</div>
+                    <div class="numero">5</div>
+                    <div class="numero">4</div>
+                    <div class="numero">3</div>
+                    <div class="numero">2</div>
+                    <div class="numero">1</div>
+                </div>
+                <div class="tablero">
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                    <div class="casilla negra"></div>
+                    <div class="casilla blanca"></div>
+                </div>
+                <div class="numeros" id="volteo2">
+                    <div class="numero">8</div>
+                    <div class="numero">7</div>
+                    <div class="numero">6</div>
+                    <div class="numero">5</div>
+                    <div class="numero">4</div>
+                    <div class="numero">3</div>
+                    <div class="numero">2</div>
+                    <div class="numero">1</div>
+                </div>
+            </div>
+            <div class="letras">
+                <div></div>
+                <div class="letra">a</div>
+                <div class="letra">b</div>
+                <div class="letra">c</div>
+                <div class="letra">d</div>
+                <div class="letra">e</div>
+                <div class="letra">f</div>
+                <div class="letra">g</div>
+                <div class="letra">h</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

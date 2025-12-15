@@ -1,0 +1,623 @@
+<!--
+Proyecto: Interfaz web - Manual de identidad y conjunto de páginas
+Archivos incluidos (copiar cada bloque a su propio archivo):
+- index.html
+- login.html
+- departments.html
+- product.html
+- search.html
+- cart.html
+- mockup.html   (mockup con anotaciones de componentes)
+- css/styles.css
+- images/ (referencias a imágenes locales, p. ej. images/logo.png, images/copyright.png)
+
+Instrucciones: Crear una carpeta con los archivos HTML y una carpeta css con styles.css
+Abrir index.html en un navegador para navegar por las páginas (hipervínculos implementados).
+
+-->
+
+<!-- ========================= FILE: css/styles.css ========================= -->
+/* Copiar este bloque a css/styles.css */
+:root{
+  --primary:#6b3e26; /* marrón café */
+  --dark:#3b2f2a;
+  --accent:#d4a373; /* crema / caramelo */
+  --muted:#7a6f66;
+  --bg:#fff8f2;
+  --card:#ffffff;
+  --radius:12px;
+  --max-width:1100px;
+  --ff-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  --ff-serif: 'Merriweather', Georgia, serif;
+} 
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:var(--ff-sans);
+  background:linear-gradient(180deg,var(--bg),#ffffff);
+  color:#0f1724;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:var(--max-width);margin:0 auto;padding:24px}
+.header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+.logo{display:flex;align-items:center;gap:12px}
+.logo img{width:48px;height:48px;border-radius:8px;object-fit:cover}
+.site-title{font-weight:700;font-size:1.1rem}
+.nav{display:flex;gap:12px}
+a.btn{background:var(--primary);color:white;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:600}
+.link-ghost{background:transparent;border:1px solid rgba(11,116,209,0.12);padding:8px 12px;border-radius:8px;color:var(--dark);text-decoration:none}
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center;padding:28px 0}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(15,23,36,0.04)}
+.hero h1{font-family:var(--ff-serif);font-size:2rem;margin:0 0 8px}
+.hero p{color:var(--muted);margin:0 0 14px}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.feature{padding:14px;border-radius:10px;background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid rgba(11,116,209,0.04)}
+.footer{margin-top:36px;padding:18px 0;border-top:1px solid #e6eef9;display:flex;justify-content:space-between;align-items:center}
+.footer small{color:var(--muted)}
+.footer img.copyright{height:22px}
+
+/* Form styles */
+.form-row{display:flex;flex-direction:column;gap:8px;margin-bottom:12px}
+.input,select,textarea{padding:10px 12px;border-radius:8px;border:1px solid #dbe7f6;background:white}
+.input:focus{outline:3px solid rgba(11,116,209,0.12);border-color:var(--primary)}
+.form-actions{display:flex;gap:10px;align-items:center}
+
+/* Grid for department cards */\.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.profile{display:flex;gap:12px;align-items:center}
+.profile img{width:72px;height:72px;border-radius:10px;object-fit:cover}
+.badge{display:inline-block;padding:6px 8px;border-radius:999px;background:rgba(11,116,209,0.08);color:var(--primary);font-weight:600}
+
+/* Product detail */
+.product-grid{display:grid;grid-template-columns:420px 1fr;gap:20px;align-items:start}
+.gallery{border-radius:12px;overflow:hidden}
+.gallery img{width:100%;height:100%;display:block}
+.price{font-size:1.6rem;font-weight:700;color:var(--dark)}
+.related{display:flex;gap:12px;overflow:auto;padding-top:8px}
+.related .card{min-width:140px}
+
+/* Search results */
+.results{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+
+/* Cart */
+.cart-list{display:flex;flex-direction:column;gap:12px}
+.cart-item{display:flex;gap:12px;align-items:center}
+.qty{width:64px}
+.order-summary{background:#fbfdff;padding:14px;border-radius:10px}
+
+/* Responsive */
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .product-grid{grid-template-columns:1fr}
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:600px){
+  .features{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .nav{display:none}
+  .header{padding:12px}
+}
+
+/* Accessibility helpers */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Input validation example: error state style */
+.input.error{border-color:#e11d48;box-shadow:0 0 0 3px rgba(225,29,72,0.06)}
+
+/* small utility */
+.flex{display:flex;align-items:center}
+.center{display:flex;justify-content:center;align-items:center}
+
+
+<!-- ========================= FILE: index.html ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Inicio - Aroma Selecto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo" />
+      <div>
+        <div class="site-title">Aroma Selecto</div>
+        <div style="font-size:0.8rem;color:var(--muted)">Cafetería artesanal — Aromas y sabores únicos</div>
+      </div>
+    </div>
+    <nav class="nav">
+      <a class="link-ghost" href="departments.html">Departamentos</a>
+      <a class="link-ghost" href="search.html">Buscar</a>
+      <a class="btn" href="login.html">Acceder / Registrar</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="hero card">
+      <div>
+        <h1>Aroma Selecto — Sabores que inspiran</h1>
+        <p>Plantilla de ejemplo que respeta una paleta de color, tipografías y componentes reutilizables. Ejemplos: inicio de sesión, catálogos, ficha de producto, búsqueda y resumen de pedido.</p>
+        <div class="features" aria-hidden="false">
+          <div class="feature">
+            <div class="badge">Identidad</div>
+            <h3 style="margin:8px 0 6px">Paleta y tipografías</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.95rem">Variables CSS para colores y fuentes que garantizan coherencia.</p>
+          </div>
+          <div class="feature">
+            <div class="badge">Accesibilidad</div>
+            <h3 style="margin:8px 0 6px">Fácil lectura</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.95rem">Contrastes, foco visible y etiquetas para tecnologías de asistencia.</p>
+          </div>
+          <div class="feature">
+            <div class="badge">Responsive</div>
+            <h3 style="margin:8px 0 6px">Adaptable</h3>
+            <p style="margin:0;color:var(--muted);font-size:0.95rem">Flexbox y grid con media queries para móviles y escritorio.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card" style="max-width:380px">
+          <h3 style="margin-top:0">Reserva rápida</h3>
+          <form action="#" novalidate>
+            <div class="form-row">
+              <label>Nombre completo <span class="sr-only">(obligatorio)</span></label>
+              <input class="input" type="text" name="name" required placeholder="Ana Pérez">
+            </div>
+            <div class="form-row">
+              <label>Email</label>
+              <input class="input" type="email" name="email" required placeholder="tucorreo@ejemplo.com">
+            </div>
+            <div class="form-row">
+              <label>Contraseña</label>
+              <input class="input" type="password" name="password" minlength="8" required placeholder="mín. 8 caracteres">
+            </div>
+            <div class="form-actions">
+              <button class="btn">Crear cuenta</button>
+              <a class="link-ghost" href="login.html">Acceder</a>
+            </div>
+          </form>
+        </div>
+      </aside>
+    </section>
+
+    <section style="margin-top:18px">
+      <h2 style="margin:0 0 12px">Departamentos destacados</h2>
+      <div class="grid">
+        <article class="card">
+          <h4 style="margin-top:0">Baristas</h4>
+          <p style="color:var(--muted);margin:0 0 12px">Equipo responsable del desarrollo de productos.</p>
+          <a class="link-ghost" href="departments.html">Ver equipo</a>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">Pastelería</h4>
+          <p style="color:var(--muted);margin:0 0 12px">Branding, UX y prototipado.</p>
+          <a class="link-ghost" href="departments.html">Ver equipo</a>
+        </article>
+        <article class="card">
+          <h4 style="margin-top:0">Atención al cliente</h4>
+          <p style="color:var(--muted);margin:0 0 12px">Ventas y atención al cliente.</p>
+          <a class="link-ghost" href="departments.html">Ver equipo</a>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="container footer">
+    <div>
+      <small>Aroma Selecto — Todos los derechos reservados</small>
+    </div>
+    <div class="flex">
+      <!-- Imagen de copyright solicitada en enunciado -->
+      <img class="copyright" src="images/copyright.png" alt="Copyright">
+    </div>
+  </footer>
+</body>
+</html>
+
+<!-- ========================= FILE: login.html ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Acceso / Registro - Aroma Selecto</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo">
+      <img src="images/logo.png" alt="Logo" />
+      <div class="site-title">Aroma Selecto</div>
+    </div>
+    <nav class="nav">
+      <a class="link-ghost" href="index.html">Inicio</a>
+      <a class="link-ghost" href="departments.html">Departamentos</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <div class="card" style="max-width:720px;margin:20px auto;display:grid;grid-template-columns:1fr 1fr;gap:20px">
+      <section>
+        <h2>Iniciar sesión</h2>
+        <form action="#" method="post" novalidate>
+          <div class="form-row">
+            <label for="email">Correo electrónico</label>
+            <input id="email" class="input" type="email" name="email" required placeholder="tucorreo@ejemplo.com">
+          </div>
+          <div class="form-row">
+            <label for="pwd">Contraseña</label>
+            <input id="pwd" class="input" type="password" name="password" required>
+          </div>
+          <div class="form-actions">
+            <button class="btn">Entrar</button>
+            <a class="link-ghost" href="#">¿Olvidaste la contraseña?</a>
+          </div>
+          <hr style="margin:18px 0">
+          <p style="color:var(--muted);font-size:0.95rem">O inicia sesión con</p>
+          <div style="display:flex;gap:8px;margin-top:8px">
+            <button class="link-ghost" aria-label="Continuar con Google">Google</button>
+            <button class="link-ghost" aria-label="Continuar con Facebook">Facebook</button>
+            <button class="link-ghost" aria-label="Continuar con GitHub">GitHub</button>
+          </div>
+        </form>
+      </section>
+      <aside>
+        <h3>Registro</h3>
+        <p style="color:var(--muted)">Crea una cuenta para acceder a contenidos exclusivos y gestionar pedidos.</p>
+        <form action="#" novalidate>
+          <div class="form-row">
+            <label>Nombre</label>
+            <input class="input" type="text" name="name" required>
+          </div>
+          <div class="form-row">
+            <label>DNI (opcional)</label>
+            <!-- Patrón ejemplo para DNI: 8 dígitos y una letra -->
+            <input class="input" type="text" name="dni" pattern="\d{8}[A-Za-z]" placeholder="12345678A">
+          </div>
+          <div class="form-row">
+            <label>Teléfono</label>
+            <input class="input" type="tel" name="phone" pattern="[0-9+\-() ]{6,}" placeholder="600000000">
+          </div>
+          <div class="form-actions">
+            <button class="btn">Registrar</button>
+            <a class="link-ghost" href="index.html">Volver</a>
+          </div>
+        </form>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>
+
+<!-- ========================= FILE: departments.html ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Departamentos - Aroma Selecto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo"><img src="images/logo.png" alt="Logo"><div class="site-title">Aroma Selecto</div></div>
+    <nav class="nav">
+      <a class="link-ghost" href="index.html">Inicio</a>
+      <a class="link-ghost" href="search.html">Buscar</a>
+      <a class="btn" href="login.html">Acceder</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Departamentos</h1>
+    <p style="color:var(--muted)">Fichas resumidas de los equipos que conforman la organización.</p>
+
+    <section class="grid" aria-labelledby="equipos">
+      <article class="card">
+        <div class="profile">
+          <img src="images/dev1.jpg" alt="Foto persona">
+          <div>
+            <strong>Cappuccino Clásico</strong>
+            <div style="color:var(--muted)">Bebida clásica</div>
+          </div>
+        </div>
+        <p style="color:var(--muted);margin-top:8px">Espuma cremosa con espresso de origen único y leche vaporizada.</p>
+        <a class="link-ghost" href="product.html">Ver ficha</a>
+      </article>
+
+      <article class="card">
+        <div class="profile">
+          <img src="images/designer.jpg" alt="Foto persona">
+          <div>
+            <strong>Carlos Ruiz</strong>
+            <div style="color:var(--muted)">Diseñador</div>
+          </div>
+        </div>
+        <p style="color:var(--muted);margin-top:8px">Encargado de la identidad visual y guías de estilo.</p>
+        <a class="link-ghost" href="product.html">Ver ficha</a>
+      </article>
+
+      <article class="card">
+        <div class="profile">
+          <img src="images/marketing.jpg" alt="Foto persona">
+          <div>
+            <strong>Ana Ruiz</strong>
+            <div style="color:var(--muted)">Marketing</div>
+          </div>
+        </div>
+        <p style="color:var(--muted);margin-top:8px">Estrategias de lanzamiento y promoción.</p>
+        <a class="link-ghost" href="product.html">Ver ficha</a>
+      </article>
+
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>
+
+<!-- ========================= FILE: product.html (Descripción de un elemento) ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ficha - Cappuccino Clásico</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo"><img src="images/logo.png" alt="Logo"><div class="site-title">Aroma Selecto</div></div>
+    <nav class="nav">
+      <a class="link-ghost" href="departments.html">Volver</a>
+      <a class="link-ghost" href="search.html">Buscar</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="product-grid">
+      <div class="gallery card">
+        <img src="images/dev1.jpg" alt="Cappuccino Clásico">
+      </div>
+      <div>
+        <h1 style="margin-top:0">Cappuccino Clásico</h1>
+        <div style="color:var(--muted)">Bebida clásica — Experiencia en accesibilidad</div>
+        <p style="margin-top:12px">María lleva 6 años creando interfaces para proyectos educativos y corporativos. Ha liderado migraciones a diseños responsivos y ha colaborado con equipos de producto para mejorar la usabilidad.</p>
+        <div style="margin-top:12px" class="price">Especialidades</div>
+        <ul style="color:var(--muted)">
+          <li>Prototipado (Figma, Sketch)</li>
+          <li>HTML5, CSS3, JS, React</li>
+          <li>Pruebas de accesibilidad (WCAG)</li>
+        </ul>
+
+        <div style="margin-top:12px" class="form-actions">
+          <a class="btn" href="cart.html">Solicitar consultoría</a>
+          <a class="link-ghost" href="departments.html">Volver al departamento</a>
+        </div>
+
+        <h3 style="margin-top:18px">Opiniones</h3>
+        <div class="card" style="margin-top:8px">
+          <strong>Cliente X</strong>
+          <p style="color:var(--muted);margin:6px 0 0">"María mejoró la usabilidad de nuestra plataforma aumentando las conversiones."</p>
+        </div>
+
+        <h3 style="margin-top:12px">Enlaces relacionados</h3>
+        <ul style="color:var(--muted)">
+          <li><a href="#">Proyectos</a></li>
+          <li><a href="#">Publicaciones</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section style="margin-top:18px">
+      <h2>Productos relacionados</h2>
+      <div class="related">
+        <div class="card">
+          <img src="images/thumb1.jpg" alt="" style="width:100%;height:88px;object-fit:cover;border-radius:8px">
+          <div style="padding:8px">Curso de diseño UI</div>
+        </div>
+        <div class="card">
+          <img src="images/thumb2.jpg" alt="" style="width:100%;height:88px;object-fit:cover;border-radius:8px">
+          <div style="padding:8px">Pastel de zanahoria</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>
+
+<!-- ========================= FILE: search.html (Búsquedas - ejemplo de resultados) ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Buscar - Aroma Selecto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo"><img src="images/logo.png" alt="Logo"><div class="site-title">Aroma Selecto</div></div>
+    <nav class="nav"><a class="link-ghost" href="index.html">Inicio</a></nav>
+  </header>
+
+  <main class="container">
+    <h1>Búsqueda</h1>
+    <form action="#" class="card" style="padding:14px 18px">
+      <label for="q">Buscar</label>
+      <div style="display:flex;gap:8px;margin-top:8px">
+        <input id="q" class="input" type="search" placeholder="Escribe aquí tu búsqueda...">
+        <button class="btn">Buscar</button>
+      </div>
+    </form>
+
+    <section style="margin-top:18px">
+      <h2>Resultados</h2>
+      <p style="color:var(--muted)">Mostrando un ejemplo de resultado y artículos relacionados.</p>
+      <div class="results">
+        <article class="card">
+          <h3 style="margin-top:0">Producto ejemplo</h3>
+          <p style="color:var(--muted)">Descripción breve del producto o persona encontrada.</p>
+          <a class="link-ghost" href="product.html">Ver ficha</a>
+        </article>
+        <aside class="card">
+          <h4 style="margin-top:0">Artículos relacionados</h4>
+          <ul style="color:var(--muted)">
+            <li><a href="#">Nuestro menú</a></li>
+            <li><a href="#">Promociones del día</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>
+
+<!-- ========================= FILE: cart.html (Resumen de pedido) ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Resumen de pedido - Aroma Selecto</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="container header">
+    <div class="logo"><img src="images/logo.png" alt="Logo"><div class="site-title">Aroma Selecto</div></div>
+    <nav class="nav"><a class="link-ghost" href="index.html">Inicio</a><a class="btn" href="login.html">Acceder</a></nav>
+  </header>
+
+  <main class="container">
+    <h1>Resumen de pedido</h1>
+    <div style="display:grid;grid-template-columns:1fr 340px;gap:18px">
+      <section>
+        <div class="card cart-list">
+          <div class="cart-item">
+            <img src="images/thumb1.jpg" alt="" style="width:72px;height:72px;object-fit:cover;border-radius:8px">
+            <div>
+              <strong>Cappuccino Clásico</strong>
+              <div style="color:var(--muted)">1 x 3,50 €</div>
+            </div>
+            <div style="margin-left:auto" class="qty">Cant: 1</div>
+          </div>
+
+          <div class="cart-item">
+            <img src="images/thumb2.jpg" alt="" style="width:72px;height:72px;object-fit:cover;border-radius:8px">
+            <div>
+              <strong>Guía de estilo</strong>
+              <div style="color:var(--muted)">1 x 2,80 €</div>
+            </div>
+            <div style="margin-left:auto" class="qty">Cant: 2</div>
+          </div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="order-summary card">
+          <h3 style="margin-top:0">Total</h3>
+          <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span>9,10 €</span></div>
+          <div style="display:flex;justify-content:space-between"><span>IVA</span><span>0,91 €</span></div>
+          <hr style="margin:12px 0">
+          <div style="display:flex;justify-content:space-between;font-weight:700"><span>Total</span><span>10,01 €</span></div>
+
+          <h4 style="margin-top:12px">Formas de pago</h4>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+            <!-- Sólo enlaces: no funcionales -->
+            <a class="link-ghost" href="#">PayPal</a>
+            <a class="link-ghost" href="#">Redsys</a>
+            <a class="link-ghost" href="#">Google Pay</a>
+          </div>
+
+          <div style="margin-top:12px" class="form-actions">
+            <button class="btn">Finalizar pedido</button>
+            <a class="link-ghost" href="search.html">Seguir comprando</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="container footer">
+    <div><small>Aroma Selecto — Todos los derechos reservados</small></div>
+    <div><img class="copyright" src="images/copyright.png" alt="Copyright"></div>
+  </footer>
+</body>
+</html>
+
+<!-- ========================= FILE: mockup.html (Mockup con anotaciones) ========================= -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Mockup - Anotaciones de componentes</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>.annot{font-size:0.9rem;color:var(--muted);margin-bottom:8px}.box{border:1px dashed rgba(11,116,209,0.18);padding:8px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff)}</style>
+</head>
+<body>
+  <main class="container">
+    <h1>Mockup y especificaciones</h1>
+    <p class="annot">Este documento recoge las partes de la interfaz, sus características y restricciones de datos.</p>
+
+    <section class="card">
+      <h2>Componente: Campo Email</h2>
+      <div class="box">
+        <p><strong>Tipo:</strong> input[type=email] — <strong>Requerido:</strong> sí</p>
+        <p><strong>Validación:</strong> HTML5 (type="email") y patrón adicional si se desea.</p>
+        <p><strong>Comportamiento:</strong> foco con outline visible; mensaje de error si inválido.</p>
+      </div>
+
+      <h2 style="margin-top:12px">Componente: DNI (opcional)</h2>
+      <div class="box">
+        <p><strong>Tipo:</strong> input[type=text]</p>
+        <p><strong>Patrón:</strong> \d{8}[A-Za-z] (ejemplo 12345678A)</p>
+        <p><strong>Requerido:</strong> opcional. Mostrar ayuda en caso de formato incorrecto.</p>
+      </div>
+
+      <h2 style="margin-top:12px">Botón</h2>
+      <div class="box">
+        <p><strong>Estilos:</strong> botón principal (.btn) con color primario, border-radius 10px, padding 10x14.</p>
+        <p><strong>Estados:</strong> hover (oscurecer), disabled (opacidad 60%).</p>
+      </div>
+
+      <h2 style="margin-top:12px">Enlaces y navegación</h2>
+      <div class="box">
+        <p><strong>Hipervínculos:</strong> navegación entre páginas (index, login, departments, product, search, cart). En el mockup se implementan para navegación local.</p>
+      </div>
+
+      <h2 style="margin-top:12px">Responsive</h2>
+      <div class="box">
+        <p>Se usan media queries en 900px y 600px para adaptar layout de grid y ocultar la navegación principal en móviles.</p>
+      </div>
+
+    </section>
+  </main>
+</body>
+</html>
+
+<!-- Fin del paquete -->

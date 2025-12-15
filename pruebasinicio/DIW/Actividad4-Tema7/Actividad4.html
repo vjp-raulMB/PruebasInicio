@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fichas de Dominó</title>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            justify-items: center;
+            align-items: center;
+            gap: 30px;
+            height: 100vh;
+            margin: 0;
+            background: #f0f0f0;
+        }
+
+        .tile {
+            display: grid;
+            grid-template-rows: 1fr 10px 1fr;
+            width: 180px;
+            height: 360px;
+            background: #fff;
+            border: 3px solid #000;
+            border-radius: 16px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .half {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 5px;
+        }
+
+        .pip {
+            width: 24px;
+            height: 24px;
+            background: #000;
+            border-radius: 50%;
+            justify-self: center;
+            align-self: center;
+        }
+
+        .divider {
+            background: #000;
+            border-radius: 5px;
+        }
+
+        /* Para que el divider ocupe toda la fila horizontalmente */
+        .divider {
+            width: 100%;
+            height: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ficha 6|6 -->
+    <div class="tile">
+        <div class="half">
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="half">
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+
+    <!-- Ficha 5|1 -->
+    <div class="tile">
+        <div class="half">
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="half">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+
+    <!-- Ficha 3|4 -->
+    <div class="tile">
+        <div class="half">
+            <div class="pip"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="pip"></div>
+        </div>
+        <div class="divider"></div>
+        <div class="half">
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="pip"></div>
+            <div></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+
+    <!-- Ficha 0|2 -->
+    <div class="tile">
+        <div class="half">
+            <!-- Vacía -->
+        </div>
+        <div class="divider"></div>
+        <div class="half">
+            <div class="pip"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div class="pip"></div>
+        </div>
+    </div>
+
+</body>
+
+</html>

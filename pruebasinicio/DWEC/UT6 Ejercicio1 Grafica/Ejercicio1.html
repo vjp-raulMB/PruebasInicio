@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Top 10 Géneros por Popularidad</title>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h2>Top 30 Géneros por Popularidad</h2>
+    <canvas id="genreChart" width="400" height="100"></canvas>
+
+    <script>
+        const ctx = document.getElementById('genreChart').getContext('2d');
+        let chart;
+
+        Papa.parse("spotify.csv", {
+            download: true,
+            header: true,
+            dynamicTyping: true,
+            complete: function(results) {
+                const data = results.data;
+
+                // Agrupar popularidad por género
+                const genreMap = {};
+                data.forEach(row => {
+                    if(row.artist_genres && !isNaN(row.artist_popularity)){
+                        const genres = row.artist_genres.split(',').map(g => g.trim());
+                        genres.forEach(genre => {
+                            if (!genreMap[genre]) {
+                                genreMap[genre] = { totalPopularity: 0, count: 0 };
+                            }
+                            genreMap[genre].totalPopularity += row.artist_popularity;
+                            genreMap[genre].count += 1;
+                        });
+                    }
+                });
+
+                // Crear array con promedio de popularidad
+                const genreArray = [];
+                for (let genre in genreMap) {
+                    const avgPopularity = genreMap[genre].totalPopularity / genreMap[genre].count;
+                    genreArray.push({ genre, avgPopularity });
+                }
+
+                // Ordenar de mayor a menor y tomar top 10
+                genreArray.sort((a, b) => b.avgPopularity - a.avgPopularity);
+                const top10 = genreArray.slice(0, 30);
+
+                const genres = top10.map(g => g.genre);
+                const popularity = top10.map(g => g.avgPopularity.toFixed(2));
+
+                chart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: genres,
+                        datasets: [{
+                            label: 'Popularidad Promedio del Artista',
+                            data: popularity,
+                            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            },
+            error: function(err) {
+                console.error("Error al cargar CSV:", err);
+            }
+        });
+    </script>
+</body>
+</html>
